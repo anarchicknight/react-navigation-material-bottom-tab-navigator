@@ -19,7 +19,7 @@ class BottomNavigationView extends React.Component<Props> {
 
   render() {
     // eslint-disable-next-line no-unused-vars
-    const { activeTintColor, navigation, descriptors, ...rest } = this.props;
+    const { activeTintColor, navigation, descriptors, theme, ...rest } = this.props;
 
     return (
       <BottomNavigation
@@ -28,7 +28,7 @@ class BottomNavigationView extends React.Component<Props> {
         getColor={this._getColor}
         theme={
           /* $FlowFixMe */
-          activeTintColor ? { colors: { primary: activeTintColor } } : null
+          activeTintColor ? { ...theme, colors: { ...theme.colors, primary: activeTintColor } } : theme
         }
       />
     );
